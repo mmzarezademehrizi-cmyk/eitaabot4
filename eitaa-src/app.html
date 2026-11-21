@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0b0d12">
+<title>پنل ایجنت ایتا</title>
+<style>
+:root{--bg:#0b0d12;--bg2:#0f121a;--card:#131722;--card2:#171c29;--line:#222838;--text:#e9edf5;--mut:#8a93a8;--acc:#7c5cff;--acc2:#20d3c2;--ok:#34d399;--warn:#fbbf24;--bad:#f87171;--r:16px;--sh:0 10px 30px rgba(0,0,0,.35)}
+@media (prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#f4f6fb;--bg2:#fff;--card:#fff;--card2:#f7f8fc;--line:#e4e8f1;--text:#161a24;--mut:#667089;--sh:0 10px 30px rgba(30,40,80,.08)}}
+:root[data-theme=light]{--bg:#f4f6fb;--bg2:#fff;--card:#fff;--card2:#f7f8fc;--line:#e4e8f1;--text:#161a24;--mut:#667089;--sh:0 10px 30px rgba(30,40,80,.08)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--text);font:15px/1.7 "Vazirmatn","Segoe UI",Tahoma,system-ui,sans-serif}
+body{min-height:100vh;background:radial-gradient(900px 500px at 85% -10%,rgba(124,92,255,.16),transparent 60%),radial-gradient(700px 400px at -10% 110%,rgba(32,211,194,.10),transparent 60%),var(--bg)}
+button,input,textarea,select{font:inherit;color:inherit}
+.app{max-width:1080px;margin:0 auto;padding:0 16px 96px}
+header{position:sticky;top:0;z-index:20;margin:0 -16px;padding:12px 16px;display:flex;align-items:center;gap:12px;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:grid;place-items:center;box-shadow:0 6px 18px rgba(124,92,255,.4)}
+.logo svg{width:18px;height:18px;stroke:#fff}
+header h1{font-size:16px;margin:0;font-weight:700}header small{color:var(--mut);display:block;font-size:12px;margin-top:-4px}
+.sp{flex:1}.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px rgba(52,211,153,.15)}
+nav{position:fixed;inset:auto 0 0 0;z-index:30;display:flex;justify-content:space-around;gap:2px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--bg2) 90%,transparent);backdrop-filter:blur(16px);border-top:1px solid var(--line)}
+nav button{flex:1;background:none;border:0;border-radius:12px;padding:6px 2px;color:var(--mut);display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;cursor:pointer;position:relative}
+nav button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+nav button.on{color:var(--text)}nav button.on svg{stroke:url(#g)}
+nav button.on::after{content:"";position:absolute;top:-9px;width:22px;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--acc),var(--acc2))}
+nav .badge{position:absolute;top:2px;right:calc(50% - 20px);background:var(--bad);color:#fff;border-radius:9px;font-size:10px;padding:0 5px;min-width:16px;text-align:center}
+@media(min-width:860px){nav{position:sticky;top:61px;inset:auto;margin:14px 0 0;border:1px solid var(--line);border-radius:18px;padding:6px;background:var(--card);gap:6px}nav button{flex-direction:row;justify-content:center;gap:8px;font-size:13px;padding:10px}nav button.on{background:var(--card2)}nav button.on::after{display:none}.app{padding-bottom:40px}}
+main{padding-top:18px;display:grid;gap:14px}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:var(--sh)}
+.card h3{margin:0 0 10px;font-size:14px;color:var(--mut);font-weight:600;display:flex;align-items:center;gap:8px}
+.stat b{display:block;font-size:28px;line-height:1.2;background:linear-gradient(135deg,var(--text),var(--mut));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:var(--mut);font-size:12.5px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.col{display:grid;gap:10px}
+.btn{border:1px solid var(--line);background:var(--card2);padding:8px 14px;border-radius:12px;cursor:pointer;font-size:13px;transition:.15s}
+.btn:hover{border-color:var(--acc)}.btn:active{transform:scale(.97)}
+.btn.pri{background:linear-gradient(135deg,var(--acc),#5a7bff);border-color:transparent;color:#fff;box-shadow:0 8px 20px rgba(124,92,255,.35)}
+.btn.bad{color:var(--bad)}.btn.sm{padding:5px 10px;font-size:12px;border-radius:10px}.btn:disabled{opacity:.5}
+.chip{border:1px solid var(--line);background:transparent;padding:5px 12px;border-radius:99px;font-size:12.5px;color:var(--mut);cursor:pointer}.chip.on{color:var(--text);background:var(--card2);border-color:var(--acc)}
+input,textarea,select{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 12px;outline:none;transition:.15s}
+input:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(124,92,255,.18)}textarea{resize:vertical;min-height:110px;line-height:1.8}
+.badge2{font-size:11.5px;padding:2px 9px;border-radius:99px;border:1px solid var(--line);color:var(--mut);white-space:nowrap}
+.s-sent{color:var(--ok);border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08)}.s-held,.s-failed{color:var(--bad);border-color:rgba(248,113,113,.35);background:rgba(248,113,113,.08)}.s-pending,.s-sending{color:var(--warn);border-color:rgba(251,191,36,.35);background:rgba(251,191,36,.08)}
+.post{display:grid;gap:8px}.post .t{white-space:pre-wrap;word-break:break-word;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;color:var(--text)}.post .t.open{-webkit-line-clamp:unset}
+.mut{color:var(--mut);font-size:12.5px}
+.chat{display:grid;gap:10px}.msg{display:flex;gap:10px;align-items:flex-start}
+.av{flex:none;width:34px;height:34px;border-radius:12px;display:grid;place-items:center;font-size:17px;background:var(--card2);border:1px solid var(--line)}
+.bub{background:var(--card2);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:9px 13px;max-width:100%;white-space:pre-wrap;word-break:break-word}
+.msg .who{font-size:11.5px;color:var(--mut);margin-bottom:2px}
+.msg.owner .bub{background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(32,211,194,.12));border-color:rgba(124,92,255,.4)}
+.ask{border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.07);border-radius:14px;padding:12px;display:grid;gap:8px}
+.sw{position:relative;width:44px;height:26px;flex:none;border-radius:99px;background:var(--line);border:0;cursor:pointer;transition:.2s}.sw::after{content:"";position:absolute;top:3px;right:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}.sw.on{background:linear-gradient(135deg,var(--acc),var(--acc2))}.sw.on::after{right:21px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(5,7,12,.6);backdrop-filter:blur(6px);display:grid;place-items:end center;padding:0}
+@media(min-width:700px){.modal{place-items:center;padding:20px}}
+.sheet{width:min(560px,100%);max-height:92vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:22px 22px 0 0;padding:20px;display:grid;gap:12px;box-shadow:var(--sh);animation:up .22s ease}
+@media(min-width:700px){.sheet{border-radius:22px}}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.toast{position:fixed;inset:auto 0 88px;display:grid;place-items:center;z-index:80;pointer-events:none}.toast div{background:var(--text);color:var(--bg);padding:9px 16px;border-radius:99px;font-size:13px;box-shadow:var(--sh);animation:up .2s}
+.empty{text-align:center;color:var(--mut);padding:34px 10px}
+.lock{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}.lock .card{max-width:420px}
+.skeleton{height:70px;border-radius:14px;background:linear-gradient(90deg,var(--card),var(--card2),var(--card));background-size:200% 100%;animation:sh 1.3s infinite}@keyframes sh{to{background-position:-200% 0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#20d3c2"/></linearGradient></defs></svg>
+<div id="root"></div>
+<script>
+(function(){
+'use strict';
+var API='/app/api/', TOKEN='', S={tab:'home',st:null,filter:'',q:'',data:{}}, timer=null;
+try{var m=location.hash.match(/k=([\w-]+)/);if(m){TOKEN=m[1];try{localStorage.setItem('ea_tk',TOKEN)}catch(e){}history.replaceState(null,'',location.pathname)}else{try{TOKEN=localStorage.getItem('ea_tk')||''}catch(e){}}}catch(e){}
+var ICON={home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',posts:'<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/>',brain:'<path d="M9 4a3 3 0 00-3 3 3 3 0 00-2 5 3 3 0 002 5 3 3 0 006 0V7a3 3 0 00-3-3z"/><path d="M15 4a3 3 0 013 3 3 3 0 012 5 3 3 0 01-2 5 3 3 0 01-3 2"/>',council:'<path d="M4 5h16v10H9l-5 4z"/><path d="M8 9h8M8 12h5"/>',bot:'<rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01"/>',cog:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>'};
+var ic=function(n){return '<svg viewBox="0 0 24 24">'+ICON[n]+'</svg>'};
+function h(tag,a){var e=document.createElement(tag);a=a||{};for(var k in a){if(k==='class')e.className=a[k];else if(k==='html')e.innerHTML=a[k];else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),a[k]);else if(a[k]!==false&&a[k]!=null)e.setAttribute(k,a[k])}
+for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null||c===false)continue;if(Array.isArray(c))c.forEach(function(x){x!=null&&e.append(x.nodeType?x:document.createTextNode(x))});else e.append(c.nodeType?c:document.createTextNode(c))}return e}
+function api(path,opt){opt=opt||{};return fetch(API+path,{method:opt.body?'POST':'GET',headers:{authorization:'Bearer '+TOKEN,'content-type':'application/json'},body:opt.body?JSON.stringify(opt.body):undefined}).then(function(r){if(r.status===401){lock();throw new Error('auth')}return r.json()})}
+function toast(t){var x=h('div',{class:'toast'},h('div',{},t));document.body.append(x);setTimeout(function(){x.remove()},2200)}
+var FA={sent:'ارسال‌شده',held:'نگه‌داشته',pending:'در صف',sending:'در حال ارسال',failed:'ناموفق',deleted:'حذف‌شده',replaced:'جایگزین‌شده',canceled:'لغو',draft:'پیش‌نویس'};
+function ago(ts){if(!ts)return'';var d=Math.floor(Date.now()/1000)-ts;if(d<60)return'لحظاتی پیش';if(d<3600)return Math.floor(d/60)+' دقیقه پیش';if(d<86400)return Math.floor(d/3600)+' ساعت پیش';return Math.floor(d/86400)+' روز پیش'}
+function lock(){clearInterval(timer);document.getElementById('root').replaceChildren(h('div',{class:'lock'},h('div',{class:'card col'},h('div',{class:'logo',style:'margin:0 auto',html:'<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>'}),h('h2',{style:'margin:0'},'دسترسی لازم است'),h('div',{class:'mut'},'لینک شما منقضی شده یا نامعتبر است. در ربات بفرستید ',h('b',{},'/site'),' یا از «👥 گروه و ناظر ← 🌐 سایت من» لینک تازه بگیرید.'))))}
+function modal(title,body,actions){var m=h('div',{class:'modal',onclick:function(e){if(e.target===m)m.remove()}},h('div',{class:'sheet'},h('h3',{style:'margin:0'},title),body,h('div',{class:'row'},actions)));document.body.append(m);return m}
+function confirmBox(t,fn){var m;m=modal(t,h('span'),[h('button',{class:'btn bad',onclick:function(){m.remove();fn()}},'بله'),h('button',{class:'btn',onclick:function(){m.remove()}},'انصراف')])}
+
+function shell(){
+  var tabs=[['home','نمای کلی','home'],['posts','پست‌ها','posts'],['lessons','آموخته‌ها','brain'],['council','شورا','council'],['jobs','ایجنت‌ها','bot'],['settings','تنظیمات','cog']];
+  var st=S.st||{};var open=(st.counts&&st.counts.asks)||0;
+  var nav=h('nav',{},tabs.map(function(t){return h('button',{class:S.tab===t[0]?'on':'',onclick:function(){S.tab=t[0];render()},html:ic(t[2])+'<span>'+t[1]+'</span>'+(t[0]==='council'&&open?'<i class="badge">'+open+'</i>':'')})}));
+  return h('div',{class:'app'},h('header',{},h('div',{class:'logo',html:'<svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l2.5 5.5L20 9l-4 4 1 6-5-3-5 3 1-6-4-4 5.5-.5z"/></svg>'}),h('div',{},h('h1',{},'ایجنت ایتا'),h('small',{},st.user?st.user.name:'')),h('div',{class:'sp'}),h('span',{class:'dot'})),nav,h('main',{id:'view'}))}
+function render(){var r=document.getElementById('root');if(!document.getElementById('view')||!r.querySelector('nav')){r.replaceChildren(shell())}else{r.replaceChildren(shell())}load()}
+function view(el){var v=document.getElementById('view');v.replaceChildren.apply(v,[].concat(el))}
+function skel(){view([h('div',{class:'skeleton'}),h('div',{class:'skeleton'}),h('div',{class:'skeleton'})])}
+
+function load(){
+  var t=S.tab;
+  api('state').then(function(st){S.st=st;var open=st.counts.asks;var b=document.querySelector('nav .badge');
+    if(t==='home')return Promise.all([api('posts?limit=5'),api('council')]).then(function(r){S.data.recent=r[0].posts;S.data.council=r[1];draw()});
+    if(t==='posts')return api('posts?status='+encodeURIComponent(S.filter)+'&q='+encodeURIComponent(S.q)).then(function(r){S.data.posts=r.posts;draw()});
+    if(t==='lessons')return api('lessons').then(function(r){S.data.lessons=r.lessons;draw()});
+    if(t==='council')return api('council').then(function(r){S.data.council=r;draw()});
+    if(t==='jobs')return api('jobs').then(function(r){S.data.jobs=r.jobs;draw()});
+    draw()}).catch(function(e){console.error('ea',e);if(e.message!=='auth')view(h('div',{class:'empty'},'خطا در بارگذاری؛ دوباره تلاش کنید.'))})}
+function draw(){var f={home:vHome,posts:vPosts,lessons:vLessons,council:vCouncil,jobs:vJobs,settings:vSettings}[S.tab];view(f())}
+
+function badge(s){return h('span',{class:'badge2 s-'+s},FA[s]||s)}
+function bubble(m){var meta={sup:['🛡','ناظر'],asst:['🧭','دستیار'],owner:['👤','شما']}[m.role]||['🤖',m.role];return h('div',{class:'msg '+(m.role==='owner'?'owner':'')},h('div',{class:'av'},meta[0]),h('div',{},h('div',{class:'who'},meta[1]+' · '+ago(m.created_at)),h('div',{class:'bub'},m.text)))}
+
+function vHome(){var st=S.st,c=st.counts,rec=S.data.recent||[],co=S.data.council||{messages:[],asks:[]};
+  var out=[h('div',{class:'grid'},[['ارسال‌شده',c.sent],['نگه‌داشته',c.held],['آموخته‌ها',c.lessons],['سؤال بی‌پاسخ',c.asks]].map(function(x){return h('div',{class:'card stat'},h('b',{},String(x[1])),h('span',{},x[0]))}))];
+  if(!st.group)out.push(h('div',{class:'card col'},h('h3',{},'👥 گروه متصل نیست'),h('div',{class:'mut'},'در گروه تلگرام (Topics روشن، ربات ادمین) دستور /eagroup را بفرستید تا پست‌ها اول در گروه بیایند و ناظر بررسی کند.')));
+  var open=(co.asks||[]).filter(function(a){return a.status==='open'});open.forEach(function(a){out.push(askCard(a))});
+  out.push(h('div',{class:'card'},h('h3',{},'🤝 آخرین گفتگوی شورا'),h('div',{class:'chat'},(co.messages||[]).slice(-4).map(bubble)),!(co.messages||[]).length&&h('div',{class:'mut'},'هنوز گفتگویی نبوده.')));
+  out.push(h('div',{class:'card col'},h('h3',{},'📝 آخرین پست‌ها'),rec.length?rec.map(postCard):h('div',{class:'mut'},'پستی نیست.')));
+  return out}
+function askCard(a){var inp=h('input',{placeholder:'پاسخ شما…'});return h('div',{class:'ask'},h('b',{},'❓ '+(a.role==='asst'?'دستیار':'ناظر')+' از شما کمک می‌خواهد'),h('div',{},a.question),h('div',{class:'row'},inp,h('button',{class:'btn pri sm',onclick:function(){if(!inp.value.trim())return;api('ask',{body:{id:a.id,answer:inp.value}}).then(function(){toast('پاسخ به شورا رسید');load()})}},'ارسال'),h('button',{class:'btn sm',onclick:function(){api('ask',{body:{id:a.id,skip:true}}).then(load)}},'نادیده')))}
+
+function postCard(p){
+  var t=h('div',{class:'t',onclick:function(){t.classList.toggle('open')}},p.text||(p.kind==='file'?'📎 '+(p.file_name||'فایل'):'(بدون متن)'));
+  var acts=[];
+  if(['sent','held','pending','failed'].indexOf(p.status)>=0){
+    acts.push(h('button',{class:'btn sm',onclick:function(){editPost(p)}},'✏️ ویرایش'));
+    if(p.status==='held')acts.push(h('button',{class:'btn sm',onclick:function(){api('post/'+p.id+'/send',{body:{}}).then(function(r){toast(r.message||'در صف قرار گرفت');load()})}},'🚀 ارسال'));
+    if(p.status!=='sent')acts.push(h('button',{class:'btn sm',onclick:function(){timePost(p)}},'⏰ زمان'));
+    acts.push(h('button',{class:'btn sm bad',onclick:function(){confirmBox('پست #'+p.id+' حذف شود؟',function(){api('post/'+p.id+'/delete',{body:{}}).then(function(r){toast(r.message||'حذف شد');load()})})}},'🗑 حذف'))}
+  return h('div',{class:'card post'},h('div',{class:'row'},badge(p.status),p.kind==='file'?h('span',{class:'badge2'},'📎 رسانه'):null,p.verdict==='fixed'?h('span',{class:'badge2'},'✏️ اصلاح ناظر'):null,h('span',{class:'mut'},'#'+p.id+' · '+(p.channel||'')+' · '+ago(p.sent_at||p.created_at))),t,p.error&&p.status!=='sent'?h('div',{class:'mut'},'⚠️ '+p.error):null,acts.length?h('div',{class:'row'},acts):null)}
+function timePost(p){var inp=h('input',{type:'datetime-local'});var m=modal('زمان ارسال پست #'+p.id,h('div',{class:'col'},h('div',{class:'mut'},'زمان تازه‌ی ارسال (به وقت دستگاه شما)'),inp),[h('button',{class:'btn pri',onclick:function(){var t=inp.value?Math.floor(new Date(inp.value).getTime()/1000):0;if(!t){toast('زمان را انتخاب کنید');return}api('post/'+p.id+'/time',{body:{run_at:t}}).then(function(r){m.remove();toast(r.message||'ثبت شد');load()})}},'ثبت'),h('button',{class:'btn',onclick:function(){m.remove()}},'بستن')])}
+function editPost(p){var ta=h('textarea',{},p.text);var m=modal('ویرایش پست #'+p.id,h('div',{class:'col'},h('div',{class:'mut'},'ایتا ویرایش پیام را پشتیبانی نمی‌کند؛ پیام قبلی حذف و پست درست‌شده دوباره ارسال می‌شود (اول گروه، بعد ناظر، بعد ایتا).'),ta,p.kind==='file'?h('div',{class:'mut'},'برای عوض‌کردن عکس/ویدیو از دکمه‌ی «مدیریت پست» در گروه استفاده کنید. (متن همراه رسانه حداکثر ۱۰۰۰ نویسه)'):null),[h('button',{class:'btn pri',onclick:function(){api('post/'+p.id+'/edit',{body:{text:ta.value}}).then(function(r){m.remove();toast(r.message||r.error||'انجام شد');load()})}},'ذخیره و ارسال مجدد'),h('button',{class:'btn',onclick:function(){m.remove()}},'انصراف')])}
+function vPosts(){var chips=[['','همه'],['sent','ارسال‌شده'],['held','نگه‌داشته'],['pending','در صف'],['failed','ناموفق']];var q=h('input',{placeholder:'جستجو در متن پست‌ها…',value:S.q});q.addEventListener('keydown',function(e){if(e.key==='Enter'){S.q=q.value;load()}});
+  return [h('div',{class:'col'},q,h('div',{class:'row'},chips.map(function(c){return h('button',{class:'chip '+(S.filter===c[0]?'on':''),onclick:function(){S.filter=c[0];load()}},c[1])}))),(S.data.posts||[]).length?(S.data.posts).map(postCard):h('div',{class:'empty'},'پستی پیدا نشد.')]}
+
+function vLessons(){var L=S.data.lessons||[];var inp=h('input',{placeholder:'قانون تازه… مثلاً «آخر متن آیدی کانال دیگر نگذار»'});
+  var add=function(){if(inp.value.trim().length<6)return toast('قانون خیلی کوتاه است');api('lesson',{body:{op:'add',rule:inp.value}}).then(function(r){toast(r.ok?'اضافه شد':'تکراری یا نامعتبر');load()})};inp.addEventListener('keydown',function(e){if(e.key==='Enter')add()});
+  return [h('div',{class:'card col'},h('h3',{},'🧠 آموخته‌ها'),h('div',{class:'mut'},'هرچه ایجنت‌ها یاد گرفته‌اند. می‌توانید هر قانون را ویرایش یا حذف کنید یا قانون تازه بدهید؛ در پرامپت ایجنت و بررسی ناظر دیده می‌شود.'),h('div',{class:'row'},inp,h('button',{class:'btn pri',onclick:add},'افزودن'))),
+    L.length?L.map(function(l){return h('div',{class:'card row'},h('div',{style:'flex:1;min-width:200px'},h('div',{},l.rule),h('div',{class:'mut'},(l.source&&l.source.indexOf('council')===0?'🤝 شورا':l.source==='owner'?'👤 شما':'🚩 گزارش خطا')+' · '+ago(l.created_at))),h('button',{class:'btn sm',onclick:function(){var ta=h('textarea',{style:'min-height:80px'},l.rule);var m=modal('ویرایش قانون',ta,[h('button',{class:'btn pri',onclick:function(){api('lesson',{body:{op:'edit',id:l.id,rule:ta.value}}).then(function(){m.remove();load()})}},'ذخیره'),h('button',{class:'btn',onclick:function(){m.remove()}},'انصراف')])}},'✏️'),h('button',{class:'btn sm bad',onclick:function(){api('lesson',{body:{op:'delete',id:l.id}}).then(function(){toast('فراموش شد');load()})}},'🗑'))}):h('div',{class:'empty'},'هنوز چیزی یاد نگرفته‌اند.')]}
+
+function vCouncil(){var co=S.data.council||{messages:[],asks:[]};var inp=h('input',{placeholder:'به ناظر و دستیار بگویید…'});
+  var say=function(){if(!inp.value.trim())return;api('council/say',{body:{text:inp.value}}).then(function(){inp.value='';toast('به شورا رسید؛ تا یک دقیقه‌ی دیگر پاسخ می‌دهند');load()})};inp.addEventListener('keydown',function(e){if(e.key==='Enter')say()});
+  var open=(co.asks||[]).filter(function(a){return a.status==='open'}).map(askCard);
+  return [].concat(open,[h('div',{class:'card col'},h('div',{class:'row'},h('h3',{style:'margin:0;flex:1'},'🤝 شورای ناظر و دستیار'),h('button',{class:'btn sm',onclick:function(){api('council/run',{body:{}}).then(function(r){toast(r.message||'جلسه درخواست شد')})}},'جلسه‌ی تازه')),h('div',{class:'chat'},(co.messages||[]).length?co.messages.map(bubble):h('div',{class:'empty'},'هنوز جلسه‌ای نبوده. با هر خطا یا هر روز یک بار خودکار برگزار می‌شود.')),h('div',{class:'row'},inp,h('button',{class:'btn pri',onclick:say},'ارسال')))])}
+
+function vJobs(){var J=S.data.jobs||[];if(!J.length)return h('div',{class:'empty'},'ایجنتی ندارید. در ربات از «🤖 ایجنت» یکی بسازید.');
+  return J.map(function(j){return h('div',{class:'card col'},h('div',{class:'row'},h('b',{style:'flex:1'},j.name||('ایجنت #'+j.id)),h('button',{class:'sw '+(j.enabled?'on':''),onclick:function(){api('job',{body:{op:'toggle',id:j.id}}).then(load)}})),h('div',{class:'mut',style:'white-space:pre-wrap'},j.instruction),h('div',{class:'mut'},'⏰ '+(j.times||'—')+(j.last_info?' · '+j.last_info:'')),h('div',{class:'row'},h('button',{class:'btn sm',onclick:function(){api('job',{body:{op:'run',id:j.id}}).then(function(){toast('تا یک دقیقه‌ی دیگر اجرا می‌شود')})}},'▶ اجرا کن'),h('button',{class:'btn sm',onclick:function(){var ta=h('textarea',{},j.instruction);var m=modal('ویرایش دستور ایجنت',ta,[h('button',{class:'btn pri',onclick:function(){api('job',{body:{op:'edit',id:j.id,instruction:ta.value}}).then(function(){m.remove();load()})}},'ذخیره'),h('button',{class:'btn',onclick:function(){m.remove()}},'انصراف')])}},'✏️ دستور'),h('button',{class:'btn sm bad',onclick:function(){confirmBox('این ایجنت حذف شود؟',function(){api('job',{body:{op:'delete',id:j.id}}).then(load)})}},'🗑')))})}
+
+function botBox(role,fa,info){var inp=h('input',{placeholder:'توکن ربات '+fa+' (از BotFather)',dir:'ltr'});return h('div',{class:'col'},h('div',{class:'row'},h('b',{},(role==='sup'?'🛡 ':'🧭 ')+fa),h('span',{class:'mut'},info.has?'✅ '+(info.name?'@'+info.name:'ثبت شده'):'ربات جدا ندارد (همین ربات می‌نویسد)')),h('div',{class:'row'},inp,h('button',{class:'btn pri sm',onclick:function(){api('settings',{body:{role:role,token:inp.value}}).then(function(r){toast(r.message||r.error||'انجام شد');load()})}},'ثبت'),info.has?h('button',{class:'btn sm bad',onclick:function(){api('settings',{body:{role:role,clear:true}}).then(load)}},'حذف'):null))}
+function vSettings(){var st=S.st,g=st.group;
+  return [h('div',{class:'card col'},h('h3',{},'👥 گروه'),g?h('div',{},'✅ '+(g.title||g.chat)+(g.forum?' · تاپیک‌ها':' · بدون تاپیک')):h('div',{class:'mut'},'متصل نیست. در گروه بفرستید /eagroup'),g&&h('div',{class:'row'},h('b',{style:'flex:1'},'بررسی ناظر پیش از ایتا'),h('button',{class:'sw '+(g.review?'on':''),onclick:function(){api('settings',{body:{review:!g.review}}).then(load)}}))),
+    h('div',{class:'card col'},h('h3',{},'🤖 ربات‌های گروه'),botBox('sup','ناظر',st.sup),h('hr',{style:'border:0;border-top:1px solid var(--line);width:100%'}),botBox('asst','دستیار',st.asst),h('div',{class:'mut'},'هر ربات را در BotFather بسازید، توکن را اینجا بدهید و در گروه ادمین کنید.')),
+    h('div',{class:'card row'},h('b',{style:'flex:1'},'ظاهر'),h('button',{class:'btn sm',onclick:function(){var d=document.documentElement,c=d.getAttribute('data-theme')==='light'?'dark':'light';d.setAttribute('data-theme',c);try{localStorage.setItem('ea_th',c)}catch(e){}}},'تیره / روشن'),h('button',{class:'btn sm bad',onclick:function(){try{localStorage.removeItem('ea_tk')}catch(e){}TOKEN='';lock()}},'خروج'))]}
+
+try{var th=localStorage.getItem('ea_th');if(th)document.documentElement.setAttribute('data-theme',th)}catch(e){}
+if(!TOKEN)lock();else{render();timer=setInterval(function(){if(!document.hidden&&!document.querySelector('.modal')&&document.activeElement&&document.activeElement.tagName!=='INPUT'&&document.activeElement.tagName!=='TEXTAREA')load()},25000)}
+})();
+</script>
+</body>
+</html>
