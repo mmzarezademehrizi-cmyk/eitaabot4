@@ -10,7 +10,7 @@ binding = "AI"
 [[d1_databases]]
 binding = "DB"
 database_name = "ai-bot-db"
-database_id = "PUT-YOUR-D1-ID-HERE"
+database_id = "fce79edf-ceac-4701-b58e-2b56ee9fd2bb"
 
 [triggers]
 crons = ["* * * * *"]
